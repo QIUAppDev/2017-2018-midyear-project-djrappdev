@@ -3,12 +3,12 @@ package com.djrapp.quizbowl;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-public class ChooseTeam extends AppCompatActivity {
+public class ChooseTeamActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.choose_team);
+        setContentView(R.layout.activity_choose_team);
 
     }
 }

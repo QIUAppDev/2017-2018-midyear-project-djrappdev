@@ -17,7 +17,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ChooseTeam"></activity>
+        <activity android:name=".ChooseTeamActivity"></activity>
 
     </application>
 
