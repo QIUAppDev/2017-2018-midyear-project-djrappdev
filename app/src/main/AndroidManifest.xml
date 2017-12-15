@@ -18,7 +18,8 @@
         </activity>
 
         <activity android:name=".ChooseTeamActivity"></activity>
-
+        <activity android:name=".CreateTeamActivity"></activity>
+        <activity android:name=".LobbyActivity"></activity>
     </application>
 
 </manifest>
