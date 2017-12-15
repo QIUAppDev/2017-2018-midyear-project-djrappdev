@@ -20,6 +20,8 @@
         <activity android:name=".ChooseTeamActivity"></activity>
         <activity android:name=".CreateTeamActivity"></activity>
         <activity android:name=".LobbyActivity"></activity>
+        <activity android:name=".ActiveGameActivity"></activity>
+        <activity android:name=".GameMasterActivity"></activity>
     </application>
 
 </manifest>
