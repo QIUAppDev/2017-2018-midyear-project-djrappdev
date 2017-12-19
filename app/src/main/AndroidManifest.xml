@@ -24,6 +24,7 @@
         <activity android:name=".GameMasterActivity"></activity>
         <activity android:name=".CreateGameActivity"></activity>
         <activity android:name=".GameMasterLobby"></activity>
+        <activity android:name=".EndGameActivity"></activity>
     </application>
 
 </manifest>

@@ -2,6 +2,7 @@ package com.djrapp.quizbowl;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -10,7 +11,7 @@ import android.widget.TextView;
 
 public class GameMasterActivity extends AppCompatActivity {
 
-    TextView teamName, playerName, teamPoint;
+    TextView teamName, playerName, teamPoint, timer;
     Button plusZero, plusTen, plusFifthteenth, minusFive, exit;
 
     @Override
@@ -21,6 +22,7 @@ public class GameMasterActivity extends AppCompatActivity {
         teamName = findViewById(R.id.teamName);
         playerName = findViewById(R.id.playerName);
         teamPoint = findViewById(R.id.teamPoint);
+        timer = findViewById(R.id.timer);
 
         plusZero = findViewById(R.id.plusZero);
         plusTen = findViewById(R.id.plusTen);
@@ -28,6 +30,16 @@ public class GameMasterActivity extends AppCompatActivity {
         minusFive = findViewById(R.id.minusFive);
         exit = findViewById(R.id.exit);
 
+        //Get a response and then start timer
+         /*new CountDownTimer(5000,1000){
+             public void onTick(long mill){
+                 timer.setText(mill/1000 + "");
+             }
+             public void onFinish(){
+                 timer.setText("Done");
+             }
+         }.start();
+         */
         plusZero.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
