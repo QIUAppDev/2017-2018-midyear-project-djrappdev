@@ -35,6 +35,7 @@ public class ChooseTeamActivity extends AppCompatActivity {
             public void onClick(View v) {
                 int radioID = radioGroup.getCheckedRadioButtonId();
                 radioButton = findViewById(radioID);
+                String teamName = radioButton.getText().toString(); //Will be used  in SQL
                 Intent intent = new Intent(ChooseTeamActivity.this, LobbyActivity.class);
                 startActivity(intent);
             }
