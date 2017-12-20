@@ -12,7 +12,7 @@ import android.widget.TextView;
 public class GameMasterActivity extends AppCompatActivity {
 
     TextView teamName, playerName, teamPoint, timer;
-    Button plusZero, plusTen, plusFifteen, minusFive, exit;
+    Button plusZero, plusTen, plusFifthteenth, minusFive, exit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +26,7 @@ public class GameMasterActivity extends AppCompatActivity {
 
         plusZero = findViewById(R.id.plusZero);
         plusTen = findViewById(R.id.plusTen);
-        plusFifteen = findViewById(R.id.plusFif);
+        plusFifthteenth = findViewById(R.id.plusFif);
         minusFive = findViewById(R.id.minusFive);
         exit = findViewById(R.id.exit);
 
@@ -52,7 +52,7 @@ public class GameMasterActivity extends AppCompatActivity {
 
             }
         });
-        plusFifteen.setOnClickListener(new View.OnClickListener() {
+        plusFifthteenth.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
