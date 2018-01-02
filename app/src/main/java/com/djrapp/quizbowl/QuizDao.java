@@ -3,6 +3,7 @@ package com.djrapp.quizbowl;
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
+import android.arch.persistence.room.Update;
 
 import java.util.List;
 
@@ -17,7 +18,9 @@ public interface QuizDao {
     @Query("SELECT name FROM team")
     List<Team> getTeams();
 
-    @Query("SELECT name FROM player WHERE teamId IS :teamId")
-    List<String> getPlayers(int teamId);
+    @Query("SELECT name FROM player WHERE team.name = :teamName")
+    List<String> getPlayers(String teamName);
 
+    @Update
+    void updatePlayer(Player player);
 }
