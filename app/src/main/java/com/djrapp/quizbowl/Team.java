@@ -3,29 +3,27 @@ package com.djrapp.quizbowl;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 
-@Entity(tableName = "player")
-public class Player {
+@Entity(tableName = "team")
+public class Team {
     @PrimaryKey(autoGenerate = true)
     private int id;
-    private String username;
+    private String name;
     private int power;
     private int correct;
     private int negative;
-    private int teamId;
 
-    public Player(String username, int power, int correct, int negative, int teamId) {
-        this.username = username;
+    public Team(String name, int power, int correct, int negative) {
+        this.name = name;
         this.power = power;
         this.correct = correct;
         this.negative = negative;
-        this.teamId = teamId;
     }
 
     public int getId() {
         return id;
     }
-    public String getUsername() {
-        return username;
+    public String getName() {
+        return name;
     }
     public int getPower() {
         return power;
@@ -36,12 +34,9 @@ public class Player {
     public int getNegative() {
         return negative;
     }
-    public int getTeamId() {
-        return teamId;
-    }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setName(String name) {
+        this.name = name;
     }
     public void setPower(int power) {
         this.power = power;
@@ -51,8 +46,5 @@ public class Player {
     }
     public void setNegative(int negative) {
         this.negative = negative;
-    }
-    public void setTeamId(int teamId) {
-        this.teamId = teamId;
     }
 }
