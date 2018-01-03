@@ -8,16 +8,11 @@ public class Player {
     @PrimaryKey(autoGenerate = true)
     private int id;
     private String username;
-    private int power;
-    private int correct;
-    private int negative;
+    private int score;
     private int teamId;
 
-    public Player(String username, int power, int correct, int negative, int teamId) {
+    public Player(String username, int teamId) {
         this.username = username;
-        this.power = power;
-        this.correct = correct;
-        this.negative = negative;
         this.teamId = teamId;
     }
 
@@ -27,14 +22,8 @@ public class Player {
     public String getUsername() {
         return username;
     }
-    public int getPower() {
-        return power;
-    }
-    public int getCorrect() {
-        return correct;
-    }
-    public int getNegative() {
-        return negative;
+    public int getScore() {
+        return score;
     }
     public int getTeamId() {
         return teamId;
@@ -43,16 +32,13 @@ public class Player {
     public void setUsername(String username) {
         this.username = username;
     }
-    public void setPower(int power) {
-        this.power = power;
-    }
-    public void setCorrect(int correct) {
-        this.correct = correct;
-    }
-    public void setNegative(int negative) {
-        this.negative = negative;
+    public void setScore(int score) {
+        this.score = score;
     }
     public void setTeamId(int teamId) {
         this.teamId = teamId;
+    }
+    public void setId(int id) {
+        this.id = id;
     }
 }

@@ -16,11 +16,20 @@ public interface QuizDao {
     void addPlayer(Player player);
 
     @Query("SELECT name FROM team")
-    List<Team> getTeams();
+    Team[] getTeams();
 
     @Query("SELECT name FROM player WHERE team.name = :teamName")
-    List<String> getPlayers(String teamName);
+    String[] getPlayers(String teamName);
+
+    @Query("SELECT score FROM team WHERE team.name = :teamName")
+    int getTeamScore(String teamName);
+
+    @Query("SELECT score FROM player WHERE player.name = :playerName")
+    int getPlayerScore(String playerName);
 
     @Update
     void updatePlayer(Player player);
+
+    @Update
+    void updateTeam(Team team);
 }

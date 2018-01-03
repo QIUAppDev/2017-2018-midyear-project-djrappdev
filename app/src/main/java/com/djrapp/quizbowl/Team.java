@@ -8,15 +8,10 @@ public class Team {
     @PrimaryKey(autoGenerate = true)
     private int id;
     private String name;
-    private int power;
-    private int correct;
-    private int negative;
+    private int score;
 
-    public Team(String name, int power, int correct, int negative) {
+    public Team(String name) {
         this.name = name;
-        this.power = power;
-        this.correct = correct;
-        this.negative = negative;
     }
 
     public int getId() {
@@ -25,26 +20,17 @@ public class Team {
     public String getName() {
         return name;
     }
-    public int getPower() {
-        return power;
-    }
-    public int getCorrect() {
-        return correct;
-    }
-    public int getNegative() {
-        return negative;
+    public int getScore() {
+        return score;
     }
 
     public void setName(String name) {
         this.name = name;
     }
-    public void setPower(int power) {
-        this.power = power;
+    public void setScore(int score) {
+        this.score = score;
     }
-    public void setCorrect(int correct) {
-        this.correct = correct;
-    }
-    public void setNegative(int negative) {
-        this.negative = negative;
+    public void setId(int id) {
+        this.id = id;
     }
 }
