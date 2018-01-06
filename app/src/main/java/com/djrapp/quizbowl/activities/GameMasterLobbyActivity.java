@@ -1,4 +1,4 @@
-package com.djrapp.quizbowl;
+package com.djrapp.quizbowl.activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -6,7 +6,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ScrollView;
 
-public class GameMasterLobby extends AppCompatActivity{
+import com.djrapp.quizbowl.R;
+
+public class GameMasterLobbyActivity extends AppCompatActivity{
 
     ScrollView players;
     Button startGame;

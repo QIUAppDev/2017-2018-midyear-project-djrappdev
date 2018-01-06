@@ -1,4 +1,4 @@
-package com.djrapp.quizbowl;
+package com.djrapp.quizbowl.activities;
 
 import android.media.Image;
 import android.os.Bundle;
@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
+
+import com.djrapp.quizbowl.R;
 
 public class ActiveGameActivity extends AppCompatActivity {
 

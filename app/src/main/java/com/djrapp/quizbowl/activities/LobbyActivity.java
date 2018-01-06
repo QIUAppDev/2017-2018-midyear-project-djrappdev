@@ -1,9 +1,11 @@
-package com.djrapp.quizbowl;
+package com.djrapp.quizbowl.activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ScrollView;
 import android.widget.TextView;
+
+import com.djrapp.quizbowl.R;
 
 public class LobbyActivity extends AppCompatActivity {
 
