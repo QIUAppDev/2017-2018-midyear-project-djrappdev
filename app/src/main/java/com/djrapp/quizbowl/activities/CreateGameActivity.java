@@ -1,5 +1,6 @@
 package com.djrapp.quizbowl.activities;
 
+import android.net.nsd.NsdServiceInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -28,6 +29,5 @@ public class CreateGameActivity extends AppCompatActivity {
             }
         });
     }
-
 
 }
