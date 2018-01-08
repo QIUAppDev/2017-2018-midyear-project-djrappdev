@@ -1,4 +1,4 @@
-package com.djrapp.quizbowl.activities;
+package com.djrapp.quizbowl;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -6,9 +6,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.djrapp.quizbowl.R;
+public class MainActivity extends AppCompatActivity{
 
-public class MainActivity extends AppCompatActivity {
+    // Used to load the 'native-lib' library on application startup.
+    static {
+        System.loadLibrary("native-lib");
+    }
 
     private Button createRoom;
     private Button joinRoom;

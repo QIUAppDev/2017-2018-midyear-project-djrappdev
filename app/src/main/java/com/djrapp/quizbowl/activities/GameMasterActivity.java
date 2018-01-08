@@ -2,6 +2,7 @@ package com.djrapp.quizbowl.activities;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -31,16 +32,9 @@ public class GameMasterActivity extends AppCompatActivity {
         minusFive = findViewById(R.id.minusFive);
         exit = findViewById(R.id.exit);
 
-        //Get a response and then start timer
-         /*new CountDownTimer(5000,1000){
-             public void onTick(long mill){
-                 timer.setText(mill/1000 + "");
-             }
-             public void onFinish(){
-                 timer.setText("Done");
-             }
-         }.start();
-         */
+        //Get a response then start the timer
+        //timer();
+
         plusZero.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -95,6 +89,17 @@ public class GameMasterActivity extends AppCompatActivity {
                 alert.show();
             }
         });
+    }
+
+    void timer(){
+        new CountDownTimer(5000,1000){
+            public void onTick(long mill){
+                timer.setText(mill/1000 + "");
+            }
+            public void onFinish(){
+                timer.setText("Done");
+            }
+        }.start();
     }
 
 }
