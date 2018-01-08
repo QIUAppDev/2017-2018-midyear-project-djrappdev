@@ -33,7 +33,7 @@ public class GameMasterActivity extends AppCompatActivity {
         exit = findViewById(R.id.exit);
 
         //Get a response then start the timer
-        //timer();
+        //startTimer();
 
         plusZero.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,7 +91,7 @@ public class GameMasterActivity extends AppCompatActivity {
         });
     }
 
-    void timer(){
+    void startTimer(){
         new CountDownTimer(5000,1000){
             public void onTick(long mill){
                 timer.setText(mill/1000 + "");

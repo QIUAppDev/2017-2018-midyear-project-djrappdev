@@ -17,16 +17,15 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ChooseTeamActivity"></activity>
-        <activity android:name=".CreateTeamActivity"></activity>
-        <activity android:name=".LobbyActivity"></activity>
-        <activity android:name=".ActiveGameActivity"></activity>
-        <activity android:name=".GameMasterActivity"></activity>
-        <activity android:name=".CreateGameActivity"></activity>
-        <activity android:name=".GameMasterLobby"></activity>
-        <activity android:name=".EndGameActivity"></activity>
+        <activity android:name=".activities.ChooseTeamActivity"></activity>
+        <activity android:name=".activities.CreateTeamActivity"></activity>
+        <activity android:name=".activities.LobbyActivity"></activity>
+        <activity android:name=".activities.ActiveGameActivity"></activity>
+        <activity android:name=".activities.GameMasterActivity"></activity>
+        <activity android:name=".activities.CreateGameActivity"></activity>
+        <activity android:name=".activities.GameMasterLobbyActivity"></activity>
+        <activity android:name=".activities.EndGameActivity"></activity>
 
-        <receiver android:name=".MainActivity" />
     </application>
 
     <uses-permission
