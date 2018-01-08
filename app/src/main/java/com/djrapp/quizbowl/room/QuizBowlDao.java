@@ -6,7 +6,7 @@ import android.arch.persistence.room.Query;
 import android.arch.persistence.room.Update;
 
 @Dao
-public interface QuizDao {
+public interface QuizBowlDao {
     @Insert
     void addTeam(Team team);
 
