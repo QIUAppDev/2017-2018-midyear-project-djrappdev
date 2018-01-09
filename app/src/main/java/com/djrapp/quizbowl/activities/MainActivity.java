@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, CreateGameActivity.class);
+                startActivity(intent);
             }
         });
         joinRoom.setOnClickListener(new View.OnClickListener() {

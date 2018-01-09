@@ -14,7 +14,7 @@ import com.djrapp.quizbowl.R;
 public class GameMasterActivity extends AppCompatActivity {
 
     TextView teamName, playerName, teamPoint, timer;
-    Button plusZero, plusTen, plusFifthteenth, minusFive, exit;
+    Button plusZero, plusTen, plusFifteenth, minusFive, exit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +28,7 @@ public class GameMasterActivity extends AppCompatActivity {
 
         plusZero = findViewById(R.id.plusZero);
         plusTen = findViewById(R.id.plusTen);
-        plusFifthteenth = findViewById(R.id.plusFif);
+        plusFifteenth = findViewById(R.id.plusFif);
         minusFive = findViewById(R.id.minusFive);
         exit = findViewById(R.id.exit);
 
@@ -47,7 +47,7 @@ public class GameMasterActivity extends AppCompatActivity {
 
             }
         });
-        plusFifthteenth.setOnClickListener(new View.OnClickListener() {
+        plusFifteenth.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -97,7 +97,7 @@ public class GameMasterActivity extends AppCompatActivity {
                 timer.setText(mill/1000 + "");
             }
             public void onFinish(){
-                timer.setText("Done");
+                timer.setText("Time!");
             }
         }.start();
     }

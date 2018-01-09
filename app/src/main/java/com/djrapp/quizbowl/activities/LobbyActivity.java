@@ -11,7 +11,6 @@ public class LobbyActivity extends AppCompatActivity {
 
     ScrollView players;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
