@@ -11,18 +11,24 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-
 import com.djrapp.quizbowl.R;
-import com.djrapp.quizbowl.room.Team;
+import com.djrapp.quizbowl.jsonrpc.QuizBowl;
+import com.googlecode.jsonrpc4j.JsonRpcHttpAsyncClient;
+import com.googlecode.jsonrpc4j.JsonRpcHttpClient;
+import com.googlecode.jsonrpc4j.ProxyUtil;
 
-import java.util.ArrayList;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class ChooseTeamActivity extends AppCompatActivity {
 
+    JsonRpcHttpClient client;
     Button createTeam, joinTeam;
     RadioGroup radioGroup;
     RadioButton radioButton;
     EditText username;
+    URL server;
+    QuizBowl quizBowl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +40,16 @@ public class ChooseTeamActivity extends AppCompatActivity {
         radioGroup = findViewById(R.id.radioGroup);
         username = findViewById(R.id.username);
 
+        //Sets quiz bowl server and connects to it
+        try {
+            server = new URL("http:///127.0.01/QuizBowl.json");
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+        client = new JsonRpcHttpClient(server);
+        quizBowl = ProxyUtil.createClientProxy(getClass().getClassLoader(), QuizBowl.class, client);
+
+        updateRadioGroup("Lord Fifth");
         startTimer();
 
         createTeam.setOnClickListener(new View.OnClickListener() {
@@ -51,7 +67,7 @@ public class ChooseTeamActivity extends AppCompatActivity {
                 String teamName = radioButton.getText().toString(); //Will be used  in SQL
                 String playerName = username.getText().toString();
                 Intent intent = new Intent(ChooseTeamActivity.this, LobbyActivity.class);
-                intent.putExtra("Username",playerName);
+                //intent.putExtra("Username",playerName);
                 startActivity(intent);
 
             }

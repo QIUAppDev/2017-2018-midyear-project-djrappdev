@@ -8,10 +8,10 @@ import android.arch.persistence.room.Update;
 @Dao
 public interface QuizBowlDao {
     @Insert
-    void addTeam(Team team);
+    void newTeam(Team team);
 
     @Insert
-    void addPlayer(Player player);
+    void newPlayer(Player player);
 
     @Query("SELECT name FROM team")
     Team[] getTeams();
