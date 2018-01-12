@@ -3,7 +3,9 @@ package com.djrapp.quizbowl.activities;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -11,6 +13,9 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import com.djrapp.quizbowl.R;
+import com.djrapp.quizbowl.room.Team;
+
+import java.util.ArrayList;
 
 public class ChooseTeamActivity extends AppCompatActivity {
 
@@ -29,7 +34,7 @@ public class ChooseTeamActivity extends AppCompatActivity {
         radioGroup = findViewById(R.id.radioGroup);
         username = findViewById(R.id.username);
 
-        updateRadioGroup("Lord Fifth");
+        startTimer();
 
         createTeam.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,5 +66,27 @@ public class ChooseTeamActivity extends AppCompatActivity {
         rb.setText(name);
         rb.setTextColor(Color.BLACK);
         radioGroup.addView(rb);
+    }
+
+
+    void startTimer(){
+        new CountDownTimer(5000,1000){
+            public void onTick(long mill){
+                update();
+            }
+            public void onFinish(){
+                Log.d("Status","Done");
+                startTimer();
+            }
+        }.start();
+    }
+
+    void update(){
+        //Get the SQL table
+        radioGroup.removeAllViews();
+        ArrayList<Team> teamList  = aMethod();
+        for(int i = 0; i < teamList.size(); i++){
+            updateRadioGroup(teamList.get(i).getName());
+        }
     }
 }

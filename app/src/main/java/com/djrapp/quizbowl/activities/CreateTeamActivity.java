@@ -29,19 +29,11 @@ public class CreateTeamActivity extends AppCompatActivity{
         createTeam.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String name = teamName.getText().toString(); //Join with SQL table
-                updateRadioGroup(name);
+                String name = teamName.getText().toString();
+                //Pass team name to SQL
                 Intent intent = new Intent(CreateTeamActivity.this, LobbyActivity.class);
                 startActivity(intent);
             }
         });
-    }
-
-    private void updateRadioGroup(String name){
-        radioGroup = findViewById(R.id.radioGroup);
-        RadioButton rb = new RadioButton(getApplicationContext());
-        rb.setText(name);
-        rb.setTextColor(Color.BLACK);
-        radioGroup.addView(rb);
     }
 }

@@ -25,7 +25,7 @@ public class ActiveGameActivity extends AppCompatActivity {
         buzzer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                //Send a response to the GM
             }
         });
 
