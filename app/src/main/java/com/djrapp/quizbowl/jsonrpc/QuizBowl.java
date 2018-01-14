@@ -11,5 +11,6 @@ public interface QuizBowl {
     ArrayList<Team> getTeams();
     ArrayList<Player> getPlayers();
     int buzz(Player player);
-    Player getStatus();
+    void addPoints(int points, Player player);
+    int checkBuzz();
 }
