@@ -14,6 +14,7 @@ import android.widget.RadioGroup;
 
 import com.djrapp.quizbowl.R;
 import com.djrapp.quizbowl.jsonrpc.QuizBowl;
+import com.djrapp.quizbowl.room.Team;
 import com.googlecode.jsonrpc4j.JsonRpcHttpClient;
 import com.googlecode.jsonrpc4j.ProxyUtil;
 
@@ -100,10 +101,12 @@ public class ChooseTeamActivity extends AppCompatActivity {
 
     void update(){
         //Get the SQL table
+        /*Remove Comments Later
         radioGroup.removeAllViews();
         ArrayList<Team> teamList  = aMethod();
         for(int i = 0; i < teamList.size(); i++){
             updateRadioGroup(teamList.get(i).getName());
         }
+        */
     }
 }

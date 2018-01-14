@@ -12,12 +12,6 @@ import com.djrapp.quizbowl.activities.CreateGameActivity;
 
 
 public class MainActivity extends AppCompatActivity{
-
-    // Used to load the 'native-lib' library on application startup.
-    static {
-        System.loadLibrary("native-lib");
-    }
-
     private Button createRoom;
     private Button joinRoom;
 

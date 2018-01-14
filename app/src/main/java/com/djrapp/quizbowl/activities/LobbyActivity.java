@@ -59,10 +59,12 @@ public class LobbyActivity extends AppCompatActivity {
 
     void update(){
         //Get the SQL table
+        /*Remove Comments Later
         players.removeAllViews();
         ArrayList<Player> nameList  = aMethod();
         for(int i = 0; i < nameList.size(); i++){
             addPlayer(nameList.get(i).getUsername());
         }
+        */
     }
 }
