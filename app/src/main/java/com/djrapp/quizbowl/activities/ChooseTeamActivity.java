@@ -51,13 +51,14 @@ public class ChooseTeamActivity extends AppCompatActivity {
         client = new JsonRpcHttpClient(server);
         quizBowl = ProxyUtil.createClientProxy(getClass().getClassLoader(), QuizBowl.class, client);
 
-        updateRadioGroup("Lord Fifth");
         startTimer();
 
         createTeam.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ChooseTeamActivity.this, CreateTeamActivity.class);
+                String playerName = username.getText().toString();
+                intent.putExtra("Username",playerName);
                 startActivity(intent);
             }
         });
@@ -69,7 +70,7 @@ public class ChooseTeamActivity extends AppCompatActivity {
                 String teamName = radioButton.getText().toString(); //Will be used  in SQL
                 String playerName = username.getText().toString();
                 Intent intent = new Intent(ChooseTeamActivity.this, LobbyActivity.class);
-                //intent.putExtra("Username",playerName);
+                intent.putExtra("Username",playerName);
                 startActivity(intent);
 
             }
@@ -77,7 +78,7 @@ public class ChooseTeamActivity extends AppCompatActivity {
 
     }
 
-    //Add a team to the radio group. Should work...IN THeORY.
+    //Add a team to the radio group
     private void updateRadioGroup(String name){
         radioGroup = findViewById(R.id.radioGroup);
         RadioButton rb = new RadioButton(getApplicationContext());
@@ -101,12 +102,10 @@ public class ChooseTeamActivity extends AppCompatActivity {
 
     void update(){
         //Get the SQL table
-        /*Remove Comments Later
         radioGroup.removeAllViews();
-        ArrayList<Team> teamList  = aMethod();
+        ArrayList<Team> teamList  = quizBowl.getTeams();
         for(int i = 0; i < teamList.size(); i++){
             updateRadioGroup(teamList.get(i).getName());
         }
-        */
     }
 }
