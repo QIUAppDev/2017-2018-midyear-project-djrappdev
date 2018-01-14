@@ -1,17 +1,16 @@
 package com.djrapp.quizbowl.activities;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
 import com.djrapp.quizbowl.R;
-import com.djrapp.quizbowl.activities.ChooseTeamActivity;
-import com.djrapp.quizbowl.activities.CreateGameActivity;
 
 
 public class MainActivity extends AppCompatActivity{
+
     private Button createRoom;
     private Button joinRoom;
 
