@@ -11,14 +11,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+
 import com.djrapp.quizbowl.R;
 import com.djrapp.quizbowl.jsonrpc.QuizBowl;
-import com.googlecode.jsonrpc4j.JsonRpcHttpAsyncClient;
 import com.googlecode.jsonrpc4j.JsonRpcHttpClient;
 import com.googlecode.jsonrpc4j.ProxyUtil;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 
 public class ChooseTeamActivity extends AppCompatActivity {
 
