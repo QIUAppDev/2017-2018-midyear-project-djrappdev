@@ -6,7 +6,7 @@ import com.djrapp.quizbowl.room.Team;
 import java.util.ArrayList;
 
 public interface QuizBowl {
-    Player addUser(String name);
+    Player addUser(String name, int gameMaster);
     Team addTeam(String name);
     ArrayList<Team> getTeams();
     ArrayList<Player> getPlayers();
