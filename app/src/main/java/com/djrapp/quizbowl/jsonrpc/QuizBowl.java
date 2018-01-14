@@ -10,7 +10,8 @@ public interface QuizBowl {
     Team addTeam(String name);
     ArrayList<Team> getTeams();
     ArrayList<Player> getPlayers();
-    int buzz(Player player);
-    void addPoints(int points, Player player);
+    void buzz(Player player);
+    void clearBuzz();
     int checkBuzz();
+    Player getWhoBuzzed();
 }
