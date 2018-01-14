@@ -14,4 +14,5 @@ public interface QuizBowl {
     void clearBuzz();
     int checkBuzz();
     Player getWhoBuzzed();
+    void addPoints(int points,Player player);
 }
