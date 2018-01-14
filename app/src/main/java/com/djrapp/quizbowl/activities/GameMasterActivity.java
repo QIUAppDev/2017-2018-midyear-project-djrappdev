@@ -64,7 +64,6 @@ public class GameMasterActivity extends AppCompatActivity {
         plusFifteenth.setEnabled(false);
         minusFive.setEnabled(false);
 
-        //Get a response then start the timer
         if(onBuzz == false) {
             startTimer();
         }
@@ -72,8 +71,9 @@ public class GameMasterActivity extends AppCompatActivity {
         plusZero.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                currentTeam.setScore(currentTeam.getScore() + 0);
-                currentPlayer.setScore(currentPlayer.getScore() + 0);
+                //currentTeam.setScore(currentTeam.getScore() + 0);
+                //currentPlayer.setScore(currentPlayer.getScore() + 0);
+                quizBowl.addPoints(0,currentPlayer);
                 quizBowl.clearBuzz();
                 onBuzz = false;
 
@@ -88,8 +88,7 @@ public class GameMasterActivity extends AppCompatActivity {
         plusTen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                currentTeam.setScore(currentTeam.getScore() + 10);
-                currentPlayer.setScore(currentPlayer.getScore() + 10);
+                quizBowl.addPoints(10,currentPlayer);
                 quizBowl.clearBuzz();
                 onBuzz = false;
 
@@ -104,8 +103,7 @@ public class GameMasterActivity extends AppCompatActivity {
         plusFifteenth.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                currentTeam.setScore(currentTeam.getScore() + 15);
-                currentPlayer.setScore(currentPlayer.getScore() + 15);
+                quizBowl.addPoints(15,currentPlayer);
                 quizBowl.clearBuzz();
                 onBuzz = false;
 
@@ -120,8 +118,7 @@ public class GameMasterActivity extends AppCompatActivity {
         minusFive.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                currentTeam.setScore(currentTeam.getScore() - 5);
-                currentPlayer.setScore(currentPlayer.getScore() - 5);
+                quizBowl.addPoints(-5,currentPlayer);
                 quizBowl.clearBuzz();
                 onBuzz = false;
 
@@ -133,7 +130,6 @@ public class GameMasterActivity extends AppCompatActivity {
                 startTimer();
             }
         });
-        //We need a state change when this button is pressed
         exit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -155,9 +151,8 @@ public class GameMasterActivity extends AppCompatActivity {
                         new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                                intent.putExtra("EXIT", true);
+                                quizBowl.setEndState();
+                                Intent intent = new Intent(getApplicationContext(), EndGameActivity.class);
                                 startActivity(intent);
                             }
                         }

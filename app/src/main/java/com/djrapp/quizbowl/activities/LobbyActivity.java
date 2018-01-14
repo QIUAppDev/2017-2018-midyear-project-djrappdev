@@ -23,7 +23,6 @@ public class LobbyActivity extends AppCompatActivity {
 
     ScrollView players;
     String username, teamName;
-    int state;
     JsonRpcHttpClient client;
     URL server;
     QuizBowl quizBowl;
@@ -62,7 +61,7 @@ public class LobbyActivity extends AppCompatActivity {
         new CountDownTimer(4000,1000){
             public void onTick(long mill){
                 update();
-                if(state == 1){
+                if(quizBowl.getLobbyState() == 1){
                     Intent intent = new Intent(LobbyActivity.this, ActiveGameActivity.class);
                     intent.putExtra("Username",username);
                     intent.putExtra("TeamName",teamName);

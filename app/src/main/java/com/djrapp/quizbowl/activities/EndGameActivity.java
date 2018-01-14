@@ -5,13 +5,25 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ScrollView;
+import android.widget.TextView;
 
 import com.djrapp.quizbowl.R;
+import com.djrapp.quizbowl.jsonrpc.QuizBowl;
+import com.djrapp.quizbowl.room.Team;
+import com.googlecode.jsonrpc4j.JsonRpcHttpClient;
+import com.googlecode.jsonrpc4j.ProxyUtil;
+
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.ArrayList;
 
 public class EndGameActivity extends AppCompatActivity{
 
     ScrollView scrollScores;
     Button exit;
+    JsonRpcHttpClient client;
+    URL server;
+    QuizBowl quizBowl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +33,19 @@ public class EndGameActivity extends AppCompatActivity{
         scrollScores = findViewById(R.id.scores);
         exit = findViewById(R.id.exit);
 
+        try {
+            server = new URL("http:///127.0.01/QuizBowl.json");
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+        client = new JsonRpcHttpClient(server);
+        quizBowl = ProxyUtil.createClientProxy(getClass().getClassLoader(), QuizBowl.class, client);
+
+        ArrayList<Team> teamList = quizBowl.getTeams();
+        for(int i = 0; i < teamList.size(); i++){
+            addTeamPoints(teamList.get(i).getName() + " - " + teamList.get(i).getScore() + " points");
+        }
+
         exit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -28,5 +53,11 @@ public class EndGameActivity extends AppCompatActivity{
                 System.exit(0);
             }
         });
+    }
+
+    void addTeamPoints(String name) {
+        TextView temp = new TextView(this);
+        temp.setText(name);
+        scrollScores.addView(temp);
     }
 }

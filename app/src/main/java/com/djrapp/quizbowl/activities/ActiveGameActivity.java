@@ -78,9 +78,13 @@ public class ActiveGameActivity extends AppCompatActivity {
     }
 
     void startTimer(){
-        new CountDownTimer(5000,1000){
+        new CountDownTimer(4000,1000){
             public void onTick(long mill){
                 update();
+                if(quizBowl.getEndState() == 1){
+                    Intent intent = new Intent(ActiveGameActivity.this, EndGameActivity.class);
+                    startActivity(intent);
+                }
             }
             public void onFinish(){
                 Log.d("Status","Done");

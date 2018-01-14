@@ -52,8 +52,7 @@ public class GameMasterLobbyActivity extends AppCompatActivity{
         startGame.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //JAMES NEEDS TO SET THE BINARY
-
+                quizBowl.setLobbyState();
                 Intent masterIntent = new Intent(GameMasterLobbyActivity.this, GameMasterActivity.class);
                 startActivity(masterIntent);
             }
