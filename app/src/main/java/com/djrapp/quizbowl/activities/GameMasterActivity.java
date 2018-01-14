@@ -1,6 +1,7 @@
 package com.djrapp.quizbowl.activities;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v7.app.AlertDialog;
@@ -33,7 +34,7 @@ public class GameMasterActivity extends AppCompatActivity {
         exit = findViewById(R.id.exit);
 
         //Get a response then start the timer
-        //startTimer();
+        startTimer();
 
         plusZero.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,21 +68,23 @@ public class GameMasterActivity extends AppCompatActivity {
                 builder.setCancelable(true);
 
                 builder.setPositiveButton(
-                        "Yes",
-                        new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                finish();
-                                System.exit(0);
-                            }
-                        }
-                );
-                builder.setNegativeButton(
                         "No",
                         new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 dialog.cancel();
+                            }
+                        }
+                );
+                builder.setNegativeButton(
+                        "Yes",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                intent.putExtra("EXIT", true);
+                                startActivity(intent);
                             }
                         }
                 );

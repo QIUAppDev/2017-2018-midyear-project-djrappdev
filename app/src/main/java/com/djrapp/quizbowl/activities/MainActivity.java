@@ -19,6 +19,10 @@ public class MainActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        if (getIntent().getBooleanExtra("EXIT", false)) {
+            finish();
+        }
+
         createRoom = findViewById(R.id.create);
         joinRoom = findViewById(R.id.join);
 
