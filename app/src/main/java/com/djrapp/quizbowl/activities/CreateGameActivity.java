@@ -24,7 +24,7 @@ public class CreateGameActivity extends AppCompatActivity {
         gameUserName = findViewById(R.id.gameUserName);
         createGame = findViewById(R.id.createGame);
 
-        //Need to do something with gameName
+        //Need to do something with gameName (Nevermind)
         createGame.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
