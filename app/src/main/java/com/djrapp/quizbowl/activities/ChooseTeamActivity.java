@@ -44,7 +44,7 @@ public class ChooseTeamActivity extends AppCompatActivity {
 
         //Sets quiz bowl server and connects to it
         try {
-            server = new URL("http:///127.0.01/QuizBowl.json");
+            server = new URL("http://localhost:8080/quizbowl.json");
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
