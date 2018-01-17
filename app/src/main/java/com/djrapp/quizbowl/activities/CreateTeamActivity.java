@@ -1,13 +1,11 @@
 package com.djrapp.quizbowl.activities;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import com.djrapp.quizbowl.R;
@@ -40,7 +38,7 @@ public class CreateTeamActivity extends AppCompatActivity{
 
         //Sets quiz bowl server and connects to it
         try {
-            server = new URL("http://localhost:8080/quizbowl.json");
+            server = new URL("http://10.42.0.1:8080/quizbowl.json");
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }

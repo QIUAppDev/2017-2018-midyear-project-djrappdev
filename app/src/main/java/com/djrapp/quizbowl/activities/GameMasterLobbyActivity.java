@@ -7,7 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
@@ -38,7 +37,7 @@ public class GameMasterLobbyActivity extends AppCompatActivity{
         startGame = findViewById(R.id.startGame);
 
         try {
-            server = new URL("http://localhost:8080/quizbowl.json");
+            server = new URL("http://10.42.0.1:8080/quizbowl.json");
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }

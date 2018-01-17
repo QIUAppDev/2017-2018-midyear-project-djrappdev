@@ -34,7 +34,7 @@ public class EndGameActivity extends AppCompatActivity{
         exit = findViewById(R.id.exit);
 
         try {
-            server = new URL("http://localhost:8080/quizbowl.json");
+            server = new URL("http://10.42.0.1:8080/quizbowl.json");
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }

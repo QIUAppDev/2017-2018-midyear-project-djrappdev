@@ -22,14 +22,14 @@ import java.util.ArrayList;
 
 public class ActiveGameActivity extends AppCompatActivity {
 
+    JsonRpcHttpClient client;
+    URL server;
+    QuizBowl quizBowl;
     private TextView teamPoints, yourPoints;
     private ImageButton buzzerButton;
     private Player player;
     private Team team;
     private String username, teamname;
-    JsonRpcHttpClient client;
-    URL server;
-    QuizBowl quizBowl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +45,7 @@ public class ActiveGameActivity extends AppCompatActivity {
 
         //Add to SQL//Sets quiz bowl server and connects to it
         try {
-            server = new URL("http://localhost:8080/quizbowl.json");
+            server = new URL("http://10.42.0.1:8080/quizbowl.json");
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }

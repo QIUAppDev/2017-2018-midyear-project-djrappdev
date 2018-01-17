@@ -2,6 +2,7 @@ package com.djrapp.quizbowl.activities;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
@@ -31,6 +32,7 @@ public class ChooseTeamActivity extends AppCompatActivity {
     EditText username;
     URL server;
     QuizBowl quizBowl;
+    ArrayList<Team> teamList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +46,7 @@ public class ChooseTeamActivity extends AppCompatActivity {
 
         //Sets quiz bowl server and connects to it
         try {
-            server = new URL("http://localhost:8080/quizbowl.json");
+            server = new URL("http://10.42.0.1:8080/quizbowl.json");
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
@@ -93,6 +95,7 @@ public class ChooseTeamActivity extends AppCompatActivity {
             public void onTick(long mill){
                 update();
             }
+
             public void onFinish(){
                 Log.d("Status","Done");
                 startTimer();
@@ -103,9 +106,29 @@ public class ChooseTeamActivity extends AppCompatActivity {
     void update(){
         //Get the SQL table
         radioGroup.removeAllViews();
-        ArrayList<Team> teamList  = quizBowl.getTeams();
+        new JsonTask().execute("teamListString");
         for(int i = 0; i < teamList.size(); i++){
             updateRadioGroup(teamList.get(i).getName());
+        }
+    }
+
+    public void setTeamList(ArrayList<Team> teams) {
+        teamList = teams;
+    }
+
+    private class JsonTask extends AsyncTask<String, Void, Void> {
+        @Override
+        protected Void doInBackground(String... strings) {
+            switch (strings[0]) {
+                case "teamListString": {
+                    Log.d("msg", "PLZ WRK");
+                    teamList = quizBowl.getTeams();
+                }
+                default: {
+                    Log.d("msg", "PLZ WRK");
+                }
+            }
+            return null;
         }
     }
 }

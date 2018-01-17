@@ -24,14 +24,14 @@ import java.util.ArrayList;
 
 public class GameMasterActivity extends AppCompatActivity {
 
+    JsonRpcHttpClient client;
+    URL server;
+    QuizBowl quizBowl;
     private TextView teamName, playerName, teamPoint, timer;
     private Button plusZero, plusTen, plusFifteenth, minusFive, exit;
     private boolean onBuzz = false;
     private Player currentPlayer;
     private Team currentTeam;
-    JsonRpcHttpClient client;
-    URL server;
-    QuizBowl quizBowl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +39,7 @@ public class GameMasterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_game_master);
 
         try {
-            server = new URL("http://localhost:8080/quizbowl.json");
+            server = new URL("http://10.42.0.1:8080/quizbowl.json");
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
