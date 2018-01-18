@@ -18,7 +18,7 @@ import com.googlecode.jsonrpc4j.ProxyUtil;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
+import java.util.List;
 
 public class GameMasterLobbyActivity extends AppCompatActivity{
 
@@ -79,7 +79,7 @@ public class GameMasterLobbyActivity extends AppCompatActivity{
     void update(){
         //Get the SQL table
         players.removeAllViews();
-        ArrayList<Player> nameList  = quizBowl.getPlayers();
+        List<Player> nameList = quizBowl.getPlayers();
         for(int i = 0; i < nameList.size(); i++){
             addPlayer(nameList.get(i).getUsername());
         }

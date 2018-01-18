@@ -15,7 +15,7 @@ import com.googlecode.jsonrpc4j.ProxyUtil;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
+import java.util.List;
 
 public class EndGameActivity extends AppCompatActivity{
 
@@ -41,7 +41,7 @@ public class EndGameActivity extends AppCompatActivity{
         client = new JsonRpcHttpClient(server);
         quizBowl = ProxyUtil.createClientProxy(getClass().getClassLoader(), QuizBowl.class, client);
 
-        ArrayList<Team> teamList = quizBowl.getTeams();
+        List<Team> teamList = quizBowl.getTeams();
         for(int i = 0; i < teamList.size(); i++){
             addTeamPoints(teamList.get(i).getName() + " - " + teamList.get(i).getScore() + " points");
         }

@@ -20,7 +20,7 @@ import com.googlecode.jsonrpc4j.ProxyUtil;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
+import java.util.List;
 
 public class GameMasterActivity extends AppCompatActivity {
 
@@ -192,7 +192,7 @@ public class GameMasterActivity extends AppCompatActivity {
         if(quizBowl.checkBuzz() == 1){
             onBuzz = true;
             currentPlayer = quizBowl.getWhoBuzzed();
-            ArrayList<Team> teamList = quizBowl.getTeams();
+            List<Team> teamList = quizBowl.getTeams();
             for(int i = 0; i< teamList.size(); i++){
                 if(teamList.get(i).getName().equals(currentPlayer.getTeamId())){
                     currentTeam = teamList.get(i);

@@ -3,13 +3,15 @@ package com.djrapp.quizbowl.jsonrpc;
 import com.djrapp.quizbowl.room.Player;
 import com.djrapp.quizbowl.room.Team;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public interface QuizBowl {
     Player addUser(String name, String teamId, int gameMaster);
     Team addTeam(String name);
-    ArrayList<Team> getTeams();
-    ArrayList<Player> getPlayers();
+
+    List<Team> getTeams();
+
+    List<Player> getPlayers();
     void buzz(Player player);
     void clearBuzz();
     int checkBuzz();

@@ -4,6 +4,9 @@ public class Team {
     private String name;
     private int score;
 
+    public Team() {
+    }
+
     public Team(String name) {
         this.name = name;
         score = 0;
@@ -12,13 +15,15 @@ public class Team {
     public String getName() {
         return name;
     }
-    public int getScore() {
-        return score;
-    }
 
     public void setName(String name) {
         this.name = name;
     }
+
+    public int getScore() {
+        return score;
+    }
+
     public void setScore(int score) {
         this.score = score;
     }

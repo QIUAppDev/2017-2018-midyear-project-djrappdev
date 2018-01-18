@@ -1,6 +1,5 @@
 package com.djrapp.quizbowl.activities;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -17,7 +16,7 @@ import com.googlecode.jsonrpc4j.ProxyUtil;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
+import java.util.List;
 
 public class LobbyActivity extends AppCompatActivity {
 
@@ -78,7 +77,7 @@ public class LobbyActivity extends AppCompatActivity {
     void update(){
         //Get the SQL table
         players.removeAllViews();
-        ArrayList<Player> nameList  = quizBowl.getPlayers();
+        List<Player> nameList = quizBowl.getPlayers();
         for(int i = 0; i < nameList.size(); i++){
             addPlayer(nameList.get(i).getUsername());
         }
