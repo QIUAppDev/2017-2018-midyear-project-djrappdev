@@ -51,7 +51,7 @@ public class CreateTeamActivity extends AppCompatActivity{
             public void onClick(View v) {
                 String nameT = teamName.getText().toString();
                 //Pass team name to SQL
-                quizBowl.addTeam(nameT);
+                //quizBowl.addTeam(nameT);
                 Intent intent = new Intent(CreateTeamActivity.this, LobbyActivity.class);
                 intent.putExtra("Username", nameP);
                 intent.putExtra("TeamName", nameT);

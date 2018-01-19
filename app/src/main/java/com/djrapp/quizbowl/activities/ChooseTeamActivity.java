@@ -14,10 +14,11 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import com.djrapp.quizbowl.R;
-import com.djrapp.quizbowl.jsonrpc.QuizBowl;
 import com.djrapp.quizbowl.room.Team;
-import com.googlecode.jsonrpc4j.JsonRpcHttpClient;
-import com.googlecode.jsonrpc4j.ProxyUtil;
+import com.thetransactioncompany.jsonrpc2.JSONRPC2Request;
+import com.thetransactioncompany.jsonrpc2.JSONRPC2Response;
+import com.thetransactioncompany.jsonrpc2.client.JSONRPC2Session;
+import com.thetransactioncompany.jsonrpc2.client.JSONRPC2SessionException;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -30,8 +31,10 @@ public class ChooseTeamActivity extends AppCompatActivity {
     EditText username;
 
     URL url;
-    JsonRpcHttpClient client;
-    QuizBowl quizBowl;
+    JSONRPC2Session quizbowl;
+    JSONRPC2Response response;
+    int requestID = 1;
+    JSONRPC2Request request;
 
     List<Team> teamList;
 
@@ -47,15 +50,15 @@ public class ChooseTeamActivity extends AppCompatActivity {
 
         //Sets quiz bowl server URL and
         try {
-            url = new URL("http://10.72.8.96:8080/quizbowl.json");
+            url = new URL("http://10.42.0.1:8080/quizbowl.json");
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
-        client = new JsonRpcHttpClient(url);
-        quizBowl = ProxyUtil.createClientProxy(getClass().getClassLoader(), QuizBowl.class, client);
-        new JsonTask().execute();
-
-        startTimer();
+        quizbowl = new JSONRPC2Session(url);
+        request = new JSONRPC2Request("getLobbyState", requestID);
+        //new JsonTask().execute();
+        //username.setText((String)response.getResult());
+        //startTimer();
 
         createTeam.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -113,10 +116,18 @@ public class ChooseTeamActivity extends AppCompatActivity {
         }
     }
 
+    public void setResponse(JSONRPC2Response response) {
+        this.response = response;
+    }
+
     private class JsonTask extends AsyncTask<Void, Void, Void> {
         protected Void doInBackground(Void... url) {
-            //ChooseTeamActivity.teamList
-            //Team team = quizBowl.addTeam("James");
+            //teamList = quizBowl.getTeams();
+            try {
+                setResponse(quizbowl.send(request));
+            } catch (JSONRPC2SessionException e) {
+                e.printStackTrace();
+            }
             return null;
         }
     }

@@ -28,5 +28,5 @@ dependencies {
     annotationProcessor "android.arch.persistence.room:compiler:1.0.0"
     compile 'com.google.code.gson:gson:2.8.2'
     compile 'com.github.briandilley.jsonrpc4j:jsonrpc4j:1.5.2'
-    compile 'com.android.volley:volley:1.1.0'
+    compile 'com.thetransactioncompany:jsonrpc2-client:1.15'
 }

@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
@@ -22,6 +24,7 @@ public class LobbyActivity extends AppCompatActivity {
 
     ScrollView players;
     String username, teamName;
+    Button playBt;
     JsonRpcHttpClient client;
     URL server;
     QuizBowl quizBowl;
@@ -33,7 +36,7 @@ public class LobbyActivity extends AppCompatActivity {
 
         username = getIntent().getStringExtra("Username");
         teamName = getIntent().getStringExtra("TeamName");
-
+        playBt.findViewById(R.id.play);
         players = findViewById(R.id.players);
 
         //Add to SQL//Sets quiz bowl server and connects to it
@@ -45,8 +48,16 @@ public class LobbyActivity extends AppCompatActivity {
         client = new JsonRpcHttpClient(server);
         quizBowl = ProxyUtil.createClientProxy(getClass().getClassLoader(), QuizBowl.class, client);
 
-        quizBowl.addUser(username, teamName, 0);
-        startTimer();
+        //quizBowl.addUser(username, teamName, 0);
+        //startTimer();
+
+        players.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LobbyActivity.this, ActiveGameActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 
