@@ -18,7 +18,6 @@ import com.googlecode.jsonrpc4j.ProxyUtil;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.List;
 
 public class ActiveGameActivity extends AppCompatActivity {
 
@@ -52,6 +51,7 @@ public class ActiveGameActivity extends AppCompatActivity {
         client = new JsonRpcHttpClient(server);
         quizBowl = ProxyUtil.createClientProxy(getClass().getClassLoader(), QuizBowl.class, client);
 
+        /*
         List<Team> teamList = quizBowl.getTeams();
         for(int i = 0; i < teamList.size(); i++){
             if(teamList.get(i).getName().equals(teamname)){
@@ -67,12 +67,12 @@ public class ActiveGameActivity extends AppCompatActivity {
         }
 
         startTimer();
-
+        */
         buzzerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //Send a response to the GM
-                quizBowl.buzz(player);
+                //quizBowl.buzz(player);
             }
         });
     }

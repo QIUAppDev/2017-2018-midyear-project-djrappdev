@@ -1,6 +1,7 @@
 package com.djrapp.quizbowl.activities;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
@@ -27,6 +28,8 @@ public class GameMasterLobbyActivity extends AppCompatActivity{
     Button startGame;
     URL server;
     QuizBowl quizBowl;
+    List<Player> nameList;
+    String username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,14 +47,13 @@ public class GameMasterLobbyActivity extends AppCompatActivity{
         client = new JsonRpcHttpClient(server);
         quizBowl = ProxyUtil.createClientProxy(getClass().getClassLoader(), QuizBowl.class, client);
 
-        String username = getIntent().getStringExtra("Username");
-        quizBowl.addUser(username, "GameMaster", 1);
-        startTimer();
+        username = getIntent().getStringExtra("Username");
+        //startTimer();
 
         startGame.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                quizBowl.setLobbyState();
+                //quizBowl.setLobbyState();
                 Intent masterIntent = new Intent(GameMasterLobbyActivity.this, GameMasterActivity.class);
                 startActivity(masterIntent);
             }
@@ -78,10 +80,18 @@ public class GameMasterLobbyActivity extends AppCompatActivity{
 
     void update(){
         //Get the SQL table
+        new JsonTask().execute(username);
         players.removeAllViews();
-        List<Player> nameList = quizBowl.getPlayers();
         for(int i = 0; i < nameList.size(); i++){
             addPlayer(nameList.get(i).getUsername());
+        }
+    }
+
+    private class JsonTask extends AsyncTask<String, Void, Void> {
+        protected Void doInBackground(String... username) {
+            quizBowl.addUser(username[0], "GameMaster", 1);
+            nameList = quizBowl.getPlayers();
+            return null;
         }
     }
 }

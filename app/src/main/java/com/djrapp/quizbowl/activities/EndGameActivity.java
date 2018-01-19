@@ -9,13 +9,11 @@ import android.widget.TextView;
 
 import com.djrapp.quizbowl.R;
 import com.djrapp.quizbowl.jsonrpc.QuizBowl;
-import com.djrapp.quizbowl.room.Team;
 import com.googlecode.jsonrpc4j.JsonRpcHttpClient;
 import com.googlecode.jsonrpc4j.ProxyUtil;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.List;
 
 public class EndGameActivity extends AppCompatActivity{
 
@@ -41,11 +39,12 @@ public class EndGameActivity extends AppCompatActivity{
         client = new JsonRpcHttpClient(server);
         quizBowl = ProxyUtil.createClientProxy(getClass().getClassLoader(), QuizBowl.class, client);
 
+        /*
         List<Team> teamList = quizBowl.getTeams();
         for(int i = 0; i < teamList.size(); i++){
             addTeamPoints(teamList.get(i).getName() + " - " + teamList.get(i).getScore() + " points");
         }
-
+        */
         exit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

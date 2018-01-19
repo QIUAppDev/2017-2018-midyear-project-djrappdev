@@ -64,6 +64,7 @@ public class GameMasterActivity extends AppCompatActivity {
         plusFifteenth.setEnabled(false);
         minusFive.setEnabled(false);
 
+        /*
         if(onBuzz == false) {
             startTimer();
         }
@@ -130,6 +131,7 @@ public class GameMasterActivity extends AppCompatActivity {
                 startTimer();
             }
         });
+        */
         exit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -151,7 +153,7 @@ public class GameMasterActivity extends AppCompatActivity {
                         new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                quizBowl.setEndState();
+                                //quizBowl.setEndState();
                                 Intent intent = new Intent(getApplicationContext(), EndGameActivity.class);
                                 startActivity(intent);
                             }
